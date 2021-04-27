@@ -1,0 +1,48 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <title>COVID 19 Per Day Case Predictor</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            border-radius: 5px;
+            /* width: fit-content; */
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <br><br>
+    <h2 style="color: white; text-align: center;">COVID-19 Per Day Cases Predictor</h2>
+    <br><br>
+    <div class="container" >
+        <form action="{{ url_for('predict')}}" method="post" >
+            <div class="mb-3">
+              <label class="form-label" style="color: white;">Enter Day E.g 1,2,3,4... 28,29,30,31</label>
+              <input type="number" class="form-control" id="Day" name="Day" >
+            </div>
+            <div class="mb-3">
+              <label class="form-label" style="color: white;">Enter Month E.g 1,2,3,4... 11,12</label>
+              <input type="number" class="form-control" id="Month" name="Month">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" style="color: white;">Enter Year E.g 2010,2015,2020,2021</label>
+                <input type="number" class="form-control" id="Year" name="Year">
+            </div>
+            <div style="text-align: center;" class="d-grid gap-2 d-md-block">
+                <button class="btn btn-primary"  type="submit">Predict</button>
+            </div>
+            <div class="p-2 w-full text-center">
+                  <h1 class="sm:text-3xl text-2xl font-large title-font mb-4 text-white-900", style="color:white;">{{ prediction_text }}</h1>
+            </div>    
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
